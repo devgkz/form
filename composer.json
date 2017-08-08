@@ -22,8 +22,8 @@
         "satooshi/php-coveralls": "^1.0"
     },
     "autoload": {
-        "psr-0": {
-            "AdamWathan\\Form": "src/"
+        "psr-4": {
+            "AdamWathan\\Form\\": "src/"
         }
     },
     "autoload-dev": {
