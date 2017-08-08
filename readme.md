@@ -1,11 +1,7 @@
-> **Important: This package is not actively maintained.** For bug fixes and new features, please fork.
+**This package is a fork of 'adamwathan/form' for supporting and continuous development.**
 
 Form
 ========
-
-[![This Project Has Been Deprecated.](http://www.repostatus.org/badges/0.1.0/abandoned.svg)](http://www.repostatus.org/#abandoned)
-[![Code Climate](https://codeclimate.com/github/adamwathan/form/badges/gpa.svg)](https://codeclimate.com/github/adamwathan/form)
-[![Coverage Status](https://coveralls.io/repos/adamwathan/form/badge.svg?branch=master)](https://coveralls.io/r/adamwathan/form?branch=master)
 
 Boring name for a boring package. Builds form HTML with a fluent-ish, hopefully intuitive syntax.
 
@@ -22,7 +18,7 @@ Boring name for a boring package. Builds form HTML with a fluent-ish, hopefully 
 You can install this package via Composer by running this command in your terminal in the root of your project:
 
 ```bash
-composer require adamwathan/form
+composer require devgkz/form
 ```
 
 ### Laravel
@@ -65,7 +61,7 @@ You can also choose to use the Facade by adding an alias in `config/app.php`:
 - [Labels](#labels)
 - [Setting Attributes](#setting-attributes)
 
-<a href="#getting-started"></a>
+<a id="getting-started"></a>
 ### Getting Started
 First, instantiate a FormBuilder...
 
@@ -83,7 +79,7 @@ Next, use the FormBuilder to build an element. For example:
 - All elements implement `__toString()` so there is no need to manually render.
 
 
-<a href="#opening-a-form"></a>
+<a id="opening-a-form"></a>
 ### Opening a Form
 
 ```php
@@ -111,7 +107,7 @@ Next, use the FormBuilder to build an element. For example:
 <?= $builder->open()->encodingType("custom") ?>
 ```
 
-<a href="#text-and-password-fields"></a>
+<a id="text-and-password-fields"></a>
 ### Text and Password Fields
 
 Text and password fields share the same interface.
@@ -138,7 +134,7 @@ Other available methods:
 - `disable()`
 - `enable()`
 
-<a href="#textareas"></a>
+<a id="textareas"></a>
 ### Textareas
 
 Textareas share the same interface as regular text fields, with a couple of extra useful methods.
@@ -154,7 +150,7 @@ Textareas share the same interface as regular text fields, with a couple of extr
 <?= $builder->textarea('bio')->rows(5)->cols(20)->addClass('important')->value('My biography'); ?>
 ```
 
-<a href="#checkboxes-and-radio-buttons"></a>
+<a id="checkboxes-and-radio-buttons"></a>
 ### Checkboxes and Radio Buttons
 
 ```php
@@ -177,7 +173,7 @@ Textareas share the same interface as regular text fields, with a couple of extr
 <?= $builder->radio('color', 'red'); ?>
 ```
 
-<a href="#selects"></a>
+<a id="selects"></a>
 ### Selects
 
 ```php
@@ -234,7 +230,7 @@ $options = [
 <?= $builder->select('birth_year', ['1' => 1990, '2' => 1991, '3' => 1992])->select('3'); ?>
 ```
 
-<a href="#buttons"></a>
+<a id="buttons"></a>
 ### Buttons
 
 ```php
@@ -251,7 +247,7 @@ $options = [
 <?= $builder->submit('Sign Up')->addClass('js-submit'); ?>
 ```
 
-<a href="#hidden-inputs"></a>
+<a id="hidden-inputs"></a>
 ### Hidden Inputs
 
 ```php
@@ -259,7 +255,7 @@ $options = [
 <?= $builder->hidden('secret')->value('my-secret-value'); ?>
 ```
 
-<a href="#labels"></a>
+<a id="labels"></a>
 ### Labels
 
 **Basic Label**
@@ -280,7 +276,7 @@ $options = [
 <?= $builder->label('Email')->after($emailElement); ?>
 ```
 
-<a href="#setting-attributes"></a>
+<a id="setting-attributes"></a>
 ### Setting Attributes
 
 ```php
@@ -301,7 +297,7 @@ $options = [
 <?= $builder->text('foobar')->data(['foo' => 'bar', 'bar' => 'foo']); ?>
 ```
 
-<a href="#remembering-old-input"></a>
+<a id="remembering-old-input"></a>
 ## Remembering Old Input
 
 The FormBuilder can remember old input and prepopulate your form fields if you redirect back to the form because of a validation error.
@@ -318,7 +314,7 @@ This works well with the `defaultValue()` methods, allowing you to set a default
 
 > This package ships with a Laravel implementation out of the box, called `IlluminateOldInput`.
 
-<a href="#error-messages"></a>
+<a id="error-messages"></a>
 ## Error Messages
 
 FormBuilder also allows you to easily retrieve error messages for your form elements. To do so, just implement the `ErrorStoreInterface` and pass it to the FormBuilder:
@@ -350,7 +346,7 @@ You can also supply a `format` parameter to `getError()` to cleanup your markup.
 <?= $builder->getError('email', '<span class="error">:message</span'); ?>
 ```
 
-<a href="#csrf-protection"></a>
+<a id="csrf-protection"></a>
 ## CSRF Protection
 
 Assuming you set a CSRF token when instantiating the Formbuilder (or you are using Laravel), add a CSRF token to your form easily like so:
@@ -359,7 +355,7 @@ Assuming you set a CSRF token when instantiating the Formbuilder (or you are usi
 <?= $builder->token(); ?>
 ```
 
-<a href="#data-binding"></a>
+<a id="data-binding"></a>
 ## Data Binding
 
 Sometimes you might have a form where all of the fields match properties on some sort of object or array in your system, and you want the user to be able to edit that data. Data binding makes this really easy by allowing you to bind an object or array to your form that will be used to automatically provide all of the default values for your fields.
