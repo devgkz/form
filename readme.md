@@ -1,5 +1,7 @@
 **This package is a fork of 'adamwathan/form' for supporting and continuous development.**
 
+[![Build Status](https://travis-ci.org/devgkz/form.svg?branch=master)](https://travis-ci.org/devgkz/form)
+
 Form
 ========
 
