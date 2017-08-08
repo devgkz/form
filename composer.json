@@ -1,10 +1,14 @@
 {
-    "name": "adamwathan/form",
+    "name": "devgkz/form",
     "description": "A basic framework agnostic form building package with a few extra niceties like remembering old input and retrieving error messages.",
     "authors": [
         {
             "name": "Adam Wathan",
             "email": "adam.wathan@gmail.com"
+        },
+        {
+            "name": "Eugene Dementyev",
+            "email": "devg@ya.ru"
         }
     ],
     "license": "MIT",
@@ -24,6 +28,12 @@
     },
     "autoload-dev": {
         "classmap": ["tests/"]
+    },
+    "replace": {
+        "adamwathan/form":"^0.8"
+    },
+    "suggest": {
+        "bit55/inputfilter":"^0.8"
     },
     "minimum-stability": "dev"
 }
