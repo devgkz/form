@@ -239,6 +239,15 @@ class SelectTest extends PHPUnit_Framework_TestCase
         $result = $select->render();
         $this->assertEquals($expected, $result);
     }
+    
+    public function testSelectWithEmptyValueOptions()
+    {
+        $select = new Select('color', ['0' => 'Red', '1' => 'Blue']);
+        $select->setEmptyOption('-No-selected-');
+        $expected = '<select name="color"><option value="">-No-selected-</option><option value="0">Red</option><option value="1">Blue</option></select>';
+        $result = $select->render();
+        $this->assertEquals($expected, $result);
+    }
 
     public function testSelectCanBeMultiple()
     {

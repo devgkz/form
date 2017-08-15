@@ -7,6 +7,8 @@ class Select extends FormControl
     protected $options;
 
     protected $selected;
+    
+    protected $emptyOption;
 
     public function __construct($name, $options = [])
     {
@@ -32,11 +34,22 @@ class Select extends FormControl
 
         return $this;
     }
+    
+    /**
+     * Set first empty element.
+     */
+    public function setEmptyOption($label)
+    {
+        $this->emptyOption = $label;
+
+        return $this;
+    }
 
     public function render()
     {
         return implode([
             sprintf('<select%s>', $this->renderAttributes()),
+            (isset($this->emptyOption)?$this->renderOption('', $this->emptyOption):''),
             $this->renderOptions(),
             '</select>',
         ]);

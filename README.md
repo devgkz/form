@@ -225,11 +225,12 @@ $options = [
 <?= $builder->select('birth_year')->addOption('1', 1990); ?>
 
 // <select name="birth_year">
+//   <option value="">-Not-selected-</option>
 //   <option value="1">1990</option>
 //   <option value="2">1991</option>
 //   <option value="3" selected>1992</option>
 // </select>
-<?= $builder->select('birth_year', ['1' => 1990, '2' => 1991, '3' => 1992])->select('3'); ?>
+<?= $builder->select('birth_year', ['1' => 1990, '2' => 1991, '3' => 1992])->select('3')->setEmptyOption('-Not-selected-'); ?>
 ```
 
 <a id="buttons"></a>
