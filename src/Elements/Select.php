@@ -12,7 +12,7 @@ class Select extends FormControl
 
     public function __construct($name, $options = [])
     {
-        $this->setName($name);
+        parent::__construct($name);
         $this->setOptions($options);
     }
 
