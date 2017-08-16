@@ -11,6 +11,8 @@ class Checkbox extends Input
     protected $checked;
 
     protected $oldValue;
+    
+    protected $uncheckedValue = null;
 
     public function __construct($name, $value = 1)
     {
@@ -92,11 +94,23 @@ class Checkbox extends Input
             return $this->check();
         }
     }
+    
+    public function setUncheckedValue($value)
+    {
+        $this->uncheckedValue = $value;
+        
+        return $this;
+    }
 
     public function render()
     {
         $this->checkBinding();
-
-        return parent::render();
+        $prepend = '';
+        
+        if ($this->uncheckedValue !== null) {
+            $prepend = new Hidden($this->getAttribute('name'));
+            $prepend->setValue($this->uncheckedValue);
+        }
+        return $prepend . parent::render();
     }
 }

@@ -38,6 +38,15 @@ class CheckboxTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $result);
     }
+    
+    public function testCanSetUncheckedValue()
+    {
+        $checkbox = new Checkbox('above_18');
+        $expected = '<input type="hidden" name="above_18" value="0"><input type="checkbox" name="above_18" value="1">';
+        $result = $checkbox->setUncheckedValue(0)->render();
+
+        $this->assertEquals($expected, $result);
+    }
 
     public function testDefaultToChecked()
     {

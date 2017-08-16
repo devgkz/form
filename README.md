@@ -165,11 +165,16 @@ Textareas share the same interface as regular text fields, with a couple of extr
 // <input type="checkbox" name="terms" value="1">
 <?= $builder->checkbox('terms')->uncheck(); ?>
 
+// <input type="hidden" name="terms" value="0"><input type="checkbox" name="terms" value="1">
+<?= $builder->checkbox('terms')->setUncheckedValue(0); ?>
+
 // <input type="checkbox" name="terms" value="1" checked="checked">
 <?= $builder->checkbox('terms')->defaultToChecked(); ?>
 
 // <input type="checkbox" name="terms" value="agree">
 <?= $builder->checkbox('terms')->value('agree'); ?>
+
+
 
 // <input type="radio" name="color" value="red">
 <?= $builder->radio('color', 'red'); ?>
