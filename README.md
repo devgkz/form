@@ -72,7 +72,7 @@ $builder = new AdamWathan\Form\FormBuilder;
 ```
 
 Next, use the FormBuilder to build an element. For example:
-```php
+```
 <!-- <input type="text" name="email" value="example@example.com" required="required"> -->
 <?= $builder->text('email')->value('example@example.com')->required(); ?>
 ```
