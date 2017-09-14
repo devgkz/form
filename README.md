@@ -73,7 +73,7 @@ $builder = new AdamWathan\Form\FormBuilder;
 
 Next, use the FormBuilder to build an element. For example:
 ```php
-// <input type="text" name="email" value="example@example.com" required="required">
+<!-- <input type="text" name="email" value="example@example.com" required="required"> -->
 <?= $builder->text('email')->value('example@example.com')->required(); ?>
 ```
 
@@ -85,27 +85,27 @@ Next, use the FormBuilder to build an element. For example:
 ### Opening a Form
 
 ```php
-// <form method="POST">
+<!-- <form method="POST"> -->
 <?= $builder->open(); ?>
 
-// <form method="GET">
+<!-- <form method="GET"> -->
 <?= $builder->open()->get(); ?>
 
-// <form method="POST">
-// <input type="hidden" name="_method" value="PUT">
+<!-- <form method="POST">
+  <input type="hidden" name="_method" value="PUT"> -->
 <?= $builder->open()->put(); ?>
 
-// <form method="POST">
-// <input type="hidden" name="_method" value="DELETE">
+<!-- <form method="POST">
+  <input type="hidden" name="_method" value="DELETE"> -->
 <?= $builder->open()->delete(); ?>
 
-// <form method="POST" action="/test">
+<!-- <form method="POST" action="/test"> -->
 <?= $builder->open()->action('/test'); ?>
 
-// <form method="POST" action="" enctype="multipart/form-data">
+<!-- <form method="POST" action="" enctype="multipart/form-data"> -->
 <?= $builder->open()->multipart() ?>
 
-// <form method="POST" action="" enctype="custom">
+<!-- <form method="POST" action="" enctype="custom"> -->
 <?= $builder->open()->encodingType("custom") ?>
 ```
 
@@ -115,16 +115,16 @@ Next, use the FormBuilder to build an element. For example:
 Text and password fields share the same interface.
 
 ```php
-// <input type="text" name="email">
+<!-- <input type="text" name="email"> -->
 <?= $builder->text('email'); ?>
 
-// <input type="text" name="email" id="email_field">
+<!-- <input type="text" name="email" id="email_field"> -->
 <?= $builder->text('email')->id('email_field'); ?>
 
-// <input type="password" name="password" class="required">
+<!-- <input type="password" name="password" class="required"> -->
 <?= $builder->password('password')->addClass('required'); ?>
 
-// <input type="text" name="email" value="example@example.com" required="required">
+<!-- <input type="text" name="email" value="example@example.com" required="required"> -->
 <?= $builder->text('email')->value('example@example.com')->required(); ?>
 ```
 
@@ -142,13 +142,13 @@ Other available methods:
 Textareas share the same interface as regular text fields, with a couple of extra useful methods.
 
 ```php
-// <textarea name="bio" rows="5" cols="50"></textarea>
+<!-- <textarea name="bio" rows="5" cols="50"></textarea> -->
 <?= $builder->textarea('bio')->rows(5); ?>
 
-// <textarea name="bio" rows="10" cols="20"></textarea>
+<!-- <textarea name="bio" rows="10" cols="20"></textarea> -->
 <?= $builder->textarea('bio')->cols(20); ?>
 
-// <textarea name="bio" rows="5" cols="20" class="important">My biography</textarea>
+<!-- <textarea name="bio" rows="5" cols="20" class="important">My biography</textarea> -->
 <?= $builder->textarea('bio')->rows(5)->cols(20)->addClass('important')->value('My biography'); ?>
 ```
 
@@ -156,27 +156,27 @@ Textareas share the same interface as regular text fields, with a couple of extr
 ### Checkboxes and Radio Buttons
 
 ```php
-// <input type="checkbox" name="terms" value="1">
+<!-- <input type="checkbox" name="terms" value="1"> -->
 <?= $builder->checkbox('terms'); ?>
 
-// <input type="checkbox" name="terms" value="1" checked="checked">
+<!-- <input type="checkbox" name="terms" value="1" checked="checked"> -->
 <?= $builder->checkbox('terms')->check(); ?>
 
-// <input type="checkbox" name="terms" value="1">
+<!-- <input type="checkbox" name="terms" value="1"> -->
 <?= $builder->checkbox('terms')->uncheck(); ?>
 
-// <input type="hidden" name="terms" value="0"><input type="checkbox" name="terms" value="1">
+<!-- <input type="hidden" name="terms" value="0"><input type="checkbox" name="terms" value="1"> -->
 <?= $builder->checkbox('terms')->setUncheckedValue(0); ?>
 
-// <input type="checkbox" name="terms" value="1" checked="checked">
+<!-- <input type="checkbox" name="terms" value="1" checked="checked"> -->
 <?= $builder->checkbox('terms')->defaultToChecked(); ?>
 
-// <input type="checkbox" name="terms" value="agree">
+<!-- <input type="checkbox" name="terms" value="agree"> -->
 <?= $builder->checkbox('terms')->value('agree'); ?>
 
 
 
-// <input type="radio" name="color" value="red">
+<!-- <input type="radio" name="color" value="red"> -->
 <?= $builder->radio('color', 'red'); ?>
 ```
 
@@ -184,33 +184,34 @@ Textareas share the same interface as regular text fields, with a couple of extr
 ### Selects
 
 ```php
-// <select name="birth_year"></select>
+<!-- <select name="birth_year"></select>
 <?= $builder->select('birth_year'); ?>
 
-// <select name="birth_year">
-//   <option value="0">1990</option>
-//   <option value="1">1991</option>
-//   <option value="2">1992</option>
-// </select>
+<!-- <select name="birth_year">
+   <option value="0">1990</option>
+   <option value="1">1991</option>
+   <option value="2">1992</option>
+</select> -->
 <?= $builder->select('birth_year', [1990, 1991, 1992]); ?>
 
-// <select name="birth_year">
-//   <option value="1990">1990</option>
-//   <option value="1991">1991</option>
-//   <option value="1992">1992</option>
-// </select>
+<!-- <select name="birth_year">
+   <option value="1990">1990</option>
+   <option value="1991">1991</option>
+   <option value="1992">1992</option>
+</select> -->
 <?= $builder->select('birth_year', ['1990' => 1990, '1991' => 1991, '1992' => 1992]); ?>
 
-// <select name="birth_year">
-//   <optgroup label="Ontario">
-//     <option value="toronto">Toronto</option>
-//     <option value="ottawa">Ottawa</option>
-//   </optgroup>
-//   <optgroup label="Quebec">
-//     <option value="montreal">Montreal</option>
-//     <option value="quebec_city">Quebec City</option>
-//   </optgroup>
-// </select>
+<!-- <select name="birth_year">
+  <optgroup label="Ontario">
+    <option value="toronto">Toronto</option>
+    <option value="ottawa">Ottawa</option>
+  </optgroup>
+  <optgroup label="Quebec">
+    <option value="montreal">Montreal</option>
+    <option value="quebec_city">Quebec City</option>
+  </optgroup>
+</select> -->
+<?php
 $options = [
 	'Ontario' => [
 		'toronto' => 'Toronto',
@@ -222,19 +223,20 @@ $options = [
 	]
 ];
 
-<?= $builder->select('birth_year', $options); ?>
+echo $builder->select('birth_year', $options); 
+?>
 
-// <select name="birth_year">
-//   <option value="1">1990</option>
-// </select>
+<!-- <select name="birth_year">
+  <option value="1">1990</option>
+</select> -->
 <?= $builder->select('birth_year')->addOption('1', 1990); ?>
 
-// <select name="birth_year">
-//   <option value="">-Not-selected-</option>
-//   <option value="1">1990</option>
-//   <option value="2">1991</option>
-//   <option value="3" selected>1992</option>
-// </select>
+<!-- <select name="birth_year">
+  <option value="">-Not-selected-</option>
+  <option value="1">1990</option>
+  <option value="2">1991</option>
+  <option value="3" selected>1992</option>
+</select> -->
 <?= $builder->select('birth_year', ['1' => 1990, '2' => 1991, '3' => 1992])->select('3')->setEmptyOption('-Not-selected-'); ?>
 ```
 
@@ -242,16 +244,16 @@ $options = [
 ### Buttons
 
 ```php
-// <button type="button">Click Me</button>
+<!-- <button type="button">Click Me</button> -->
 <?= $builder->button('Click Me'); ?>
 
-// <button type="submit">Sign Up</button>
+<!-- <button type="submit">Sign Up</button> -->
 <?= $builder->submit('Sign Up'); ?>
 
-// <button type="reset">Reset Form</button>
+<!-- <button type="reset">Reset Form</button> -->
 <?= $builder->reset('Reset Form'); ?>
 
-// <button type="submit" class="js-submit">Sign Up</button>
+<!-- <button type="submit" class="js-submit">Sign Up</button> -->
 <?= $builder->submit('Sign Up')->addClass('js-submit'); ?>
 ```
 
